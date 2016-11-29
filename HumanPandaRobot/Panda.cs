@@ -8,10 +8,11 @@ namespace HumanPandaRobot
 {
 	class Panda : Mammal
 	{
-
-		public void Eat(string food)
+		public Panda(string name, string greeting)
+			: base (name, greeting)
 		{
-			Console.WriteLine($"Yum, I ate {food}");
+
 		}
+
 	}
 }

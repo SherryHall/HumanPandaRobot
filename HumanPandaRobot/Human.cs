@@ -8,5 +8,10 @@ namespace HumanPandaRobot
 {
 	class Human : Mammal
 	{
+		public Human(string name, string greeting)
+			: base (name, greeting)
+		{
+
+		}
 	}
 }

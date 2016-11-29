@@ -12,6 +12,11 @@ namespace HumanPandaRobot
 		bool IsShutDown { get; set; } = false;
 		string RobotType { get; set; }
 
+		public Robot(string name, string greeting, string robotType) 
+			: base (name, greeting)
+		{
+			this.RobotType = robotType.Trim().ToLower();
+		}
 		public void StartUp()
 		{
 			Console.WriteLine("Started...");
@@ -25,7 +30,7 @@ namespace HumanPandaRobot
 		}
 		public bool IsTerminator()
 		{
-			if (this.RobotType.ToLower() == "terminator")
+			if (this.RobotType == "terminator")
 			{
 				return true;
 			}
@@ -33,6 +38,11 @@ namespace HumanPandaRobot
 			{
 				return false;
 			}
+		}
+
+		public bool IsASleep()
+		{
+			return this.IsShutDown;
 		}
 	}
 }
