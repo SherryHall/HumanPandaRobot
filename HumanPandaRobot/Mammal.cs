@@ -29,7 +29,7 @@ namespace HumanPandaRobot
 			ASleep = false;
 		}
 
-		public bool IsASleep()
+		public override bool IsASleep()
 		{
 			return this.ASleep;
 		}

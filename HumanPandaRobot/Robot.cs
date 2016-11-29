@@ -9,7 +9,7 @@ namespace HumanPandaRobot
 	class Robot : Being
 	{
 
-		bool IsShutDown { get; set; } = false;
+		bool IsShutDown { get; set; } = true;
 		string RobotType { get; set; }
 
 		public Robot(string name, string greeting, string robotType) 
@@ -19,13 +19,13 @@ namespace HumanPandaRobot
 		}
 		public void StartUp()
 		{
-			Console.WriteLine("Started...");
+			Console.WriteLine($"{this.Name} Started...");
 			IsShutDown = false;
 		}
 
 		public void ShutDown()
 		{
-			Console.WriteLine("Shutdown...");
+			Console.WriteLine($"{this.Name} Shutdown...");
 			IsShutDown = true;
 		}
 		public bool IsTerminator()
@@ -40,7 +40,7 @@ namespace HumanPandaRobot
 			}
 		}
 
-		public bool IsASleep()
+		public override bool IsASleep()
 		{
 			return this.IsShutDown;
 		}

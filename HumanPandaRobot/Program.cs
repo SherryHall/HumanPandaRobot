@@ -12,32 +12,48 @@ namespace HumanPandaRobot
 		static void Main(string[] args)
 		{
 			List<Being> BeingList = new List<Being>();
+			List<Mammal> MammalList = new List<Mammal>();
+			// Create a Human
 			var human1 = new Human("James", "Hi, how are you.");
 			BeingList.Add(human1);
+			MammalList.Add(human1);
 
 			human1.Eat("Pizza");
 			human1.GoToSleep();
 			human1.WakeUp();
+			human1.GoToSleep();
 
+			// Create a Panda
 			var panda1 = new Panda("Teddy", "EeeeW eeeew bark.");
 			BeingList.Add(panda1);
+			MammalList.Add(panda1);
 
 			panda1.Eat("Tree Leaves");
 			panda1.GoToSleep();
 
+			// Create a Robot
 			var robot1 = new Robot("Tobor", "How may I serve you.", "Terminator");
-			BeingList.Add(panda1);
+			BeingList.Add(robot1);
 
-			panda1.Eat("Tree Leaves");
-			panda1.GoToSleep();
-
-			if (human1.IsASleep())
+			robot1.StartUp();
+			if (robot1.IsTerminator())
 			{
-				string activity = (human1.GetType().Name == "Robot" ? "Shut Down" : "Sleeping");
-				Console.WriteLine($"{ human1.DisplayName()} is {activity}");
+				Console.WriteLine($"{robot1.DisplayName()} says: I'm a Terminator. Be very afraid!");
+			}
+			robot1.ShutDown();
+
+
+			foreach (Being item in BeingList)
+			{
+
+			Console.WriteLine($"{item.DisplayName()} says: {item.DisplayGreeting()}.");
+			if (item.IsASleep())
+			{
+				string activity = (item.DisplayType() == "Robot" ? "Shut Down" : "Sleeping");
+				Console.WriteLine($"{ item.DisplayName()} is {activity}");
 			}
 
-			Console.WriteLine($"{human1.DisplayName()} says: {human1.DisplayGreeting()}.");
+			}
 
 			Console.ReadLine();
 

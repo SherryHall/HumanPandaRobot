@@ -26,6 +26,14 @@ namespace HumanPandaRobot
 			return this.Greeting;
 		}
 
+		public virtual bool IsASleep()
+		{
+			return false;
+		}
 
+		public string DisplayType()
+		{
+			return this.GetType().Name;
+		}
 	}
 }
